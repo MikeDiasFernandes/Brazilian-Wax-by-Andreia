@@ -1,246 +1,359 @@
-(() => {
-  "use strict";
+// Register GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
-  const CTA = {
-    primary: "#book-online",
-    secondary: "#services-her",
-  };
+document.addEventListener('DOMContentLoaded', () => {
 
-  const BRAND = {
-    name: "Brazilian Wax by Andreia",
-    short: "BW",
-    tagline: "WAX TO PERFECTION.",
-    location: "Georgia / USA",
-  };
-
-  const prefersReducedMotion =
-    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
-
-  const hasGSAP = typeof window.gsap !== "undefined";
-  const hasScrollTrigger = typeof window.ScrollTrigger !== "undefined";
-
-  function applyBrand() {
-    document.querySelectorAll("[data-brand-text]").forEach((el) => (el.textContent = BRAND.name));
-    document.querySelectorAll("[data-brand-short]").forEach((el) => (el.textContent = BRAND.short));
-
-    const taglineEl = document.querySelector("[data-brand-tagline]");
-    if (taglineEl) taglineEl.textContent = BRAND.tagline;
-
-    const locEl = document.querySelector("[data-brand-location]");
-    if (locEl) locEl.textContent = BRAND.location;
-
-    const yearEl = document.querySelector("[data-year]");
-    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  // Programmatically play the hero background video to bypass browser autoplay blocks and set playback speed
+  const heroVideo = document.querySelector('.hero-video-bg');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.playbackRate = 0.5; // Slow down video to 0.5x
+    heroVideo.play().catch(err => {
+      console.log('Video autoplay prevented by browser. Will attempt play on first user interaction.', err);
+      const playVideoBackup = () => {
+        heroVideo.playbackRate = 0.5;
+        heroVideo.play();
+        window.removeEventListener('click', playVideoBackup);
+        window.removeEventListener('scroll', playVideoBackup);
+      };
+      window.addEventListener('click', playVideoBackup);
+      window.addEventListener('scroll', playVideoBackup);
+    });
   }
 
-  function applyCTALinks() {
-    document
-      .querySelectorAll('[data-cta="primary"]')
-      .forEach((a) => a.setAttribute("href", CTA.primary));
+  // =========================================================================
+  // Mobile Navigation Drawer Toggle
+  // =========================================================================
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
 
-    document
-      .querySelectorAll('[data-cta="secondary"]')
-      .forEach((a) => a.setAttribute("href", CTA.secondary));
+  if (mobileMenuBtn && mobileDrawer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.add('open');
+    });
   }
 
-  function initMobileMenu() {
-    const menuRoot = document.getElementById("mobileMenu");
-    const menuBtn = document.getElementById("menuBtn");
-    const menuCloseBtn = document.getElementById("menuCloseBtn");
-    const panel = menuRoot?.querySelector("[data-menu-panel]");
-    const backdrop = menuRoot?.querySelector("[data-menu-backdrop]");
-    const menuLinks = menuRoot?.querySelectorAll("[data-menu-link]") || [];
+  if (drawerCloseBtn && mobileDrawer) {
+    drawerCloseBtn.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+    });
+  }
 
-    let menuOpen = false;
+  // Close drawer when clicking links
+  const drawerLinks = mobileDrawer ? mobileDrawer.querySelectorAll('a') : [];
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+    });
+  });
 
-    const lockScroll = (lock) => {
-      document.documentElement.style.overflow = lock ? "hidden" : "";
-    };
+  // =========================================================================
+  // Locations Slider Logic (Working Demonstration)
+  // =========================================================================
+  const locations = [
+    {
+      name: "Marietta - Powers Ferry Rd",
+      address: "80 Powers Ferry Rd, Marietta, GA 30067",
+      phone: "770-570-5201"
+    },
+    {
+      name: "Tampa - Dale Mabry Hwy",
+      address: "3802 N Dale Mabry Hwy, Tampa, FL 33607",
+      phone: "813-870-1234"
+    },
+    {
+      name: "Atlanta - Peachtree Rd",
+      address: "3300 Peachtree Rd NE, Atlanta, GA 30326",
+      phone: "404-233-5678"
+    }
+  ];
 
-    const setMenuA11y = (open) => {
-      menuBtn?.setAttribute("aria-expanded", String(open));
-    };
+  let currentLocIndex = 0;
+  const locNameEl = document.querySelector('.location-name');
+  const locAddressEl = document.querySelector('.location-address');
+  const locPhoneEl = document.querySelector('.location-phone');
+  const arrowPrev = document.getElementById('loc-prev-arrow');
+  const arrowNext = document.getElementById('loc-next-arrow');
 
-    const openMenu = () => {
-      if (!menuRoot || !panel || !backdrop || menuOpen) return;
-      menuOpen = true;
-      setMenuA11y(true);
-      lockScroll(true);
-      menuRoot.style.pointerEvents = "auto";
-
-      if (!prefersReducedMotion && hasGSAP) {
-        window.gsap.to(backdrop, { opacity: 1, duration: 0.25, ease: "power2.out" });
-        window.gsap.to(panel, {
+  function updateLocation(index) {
+    // Fade out text overlay card
+    gsap.to('#location-info-card', {
+      opacity: 0,
+      y: 10,
+      duration: 0.25,
+      onComplete: () => {
+        // Change text
+        if (locNameEl) locNameEl.textContent = locations[index].name;
+        if (locAddressEl) locAddressEl.textContent = locations[index].address;
+        if (locPhoneEl) {
+          locPhoneEl.innerHTML = `<i class="fa-solid fa-phone"></i> ${locations[index].phone}`;
+          locPhoneEl.setAttribute('href', `tel:${locations[index].phone.replace(/[^0-9]/g, '')}`);
+        }
+        
+        // Fade in
+        gsap.to('#location-info-card', {
           opacity: 1,
           y: 0,
-          duration: 0.35,
-          ease: "power3.out",
-          overwrite: true,
+          duration: 0.3,
+          ease: 'power1.out'
         });
-      } else {
-        backdrop.style.opacity = "1";
-        panel.style.opacity = "1";
-        panel.style.transform = "translateY(0)";
       }
-    };
+    });
 
-    const closeMenu = () => {
-      if (!menuRoot || !panel || !backdrop || !menuOpen) return;
-      menuOpen = false;
-      setMenuA11y(false);
-      lockScroll(false);
+    // Subtly animate the salon image container
+    gsap.fromTo('.salon-img', 
+      { scale: 1.03 },
+      { scale: 1, duration: 0.6, ease: 'power1.out' }
+    );
+  }
 
-      if (!prefersReducedMotion && hasGSAP) {
-        window.gsap.to(backdrop, { opacity: 0, duration: 0.2, ease: "power2.out" });
-        window.gsap.to(panel, {
-          opacity: 0,
-          y: -24,
-          duration: 0.25,
-          ease: "power2.in",
-          onComplete: () => {
-            menuRoot.style.pointerEvents = "none";
-          },
-        });
-      } else {
-        backdrop.style.opacity = "0";
-        panel.style.opacity = "0";
-        panel.style.transform = "translateY(-24px)";
-        menuRoot.style.pointerEvents = "none";
-      }
-    };
+  if (arrowPrev && arrowNext) {
+    arrowPrev.addEventListener('click', () => {
+      currentLocIndex = (currentLocIndex - 1 + locations.length) % locations.length;
+      updateLocation(currentLocIndex);
+    });
 
-    menuBtn?.addEventListener("click", openMenu);
-    menuCloseBtn?.addEventListener("click", closeMenu);
-    backdrop?.addEventListener("click", closeMenu);
-    menuLinks.forEach((a) => a.addEventListener("click", closeMenu));
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
+    arrowNext.addEventListener('click', () => {
+      currentLocIndex = (currentLocIndex + 1) % locations.length;
+      updateLocation(currentLocIndex);
     });
   }
 
-  function initNavbarScroll() {
-    const nav = document.getElementById("navbar");
-    if (!nav) return;
 
-    const onScroll = () => {
-      if (window.scrollY > 50) nav.classList.add("bg-black/90", "backdrop-blur-md", "shadow-lg");
-      else nav.classList.remove("bg-black/90", "backdrop-blur-md", "shadow-lg");
-    };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  }
+  // =========================================================================
+  // Snappy GSAP Animations (Scroll reveals)
+  // =========================================================================
 
-  function showFallback() {
-    document.querySelector(".loader")?.remove();
-    document.querySelectorAll(".reveal-on-load").forEach((el) => {
-      el.style.opacity = "1";
-      el.style.transform = "none";
-    });
-  }
-
-  function initAnimations() {
-    if (prefersReducedMotion || !hasGSAP) {
-      showFallback();
-      return;
-    }
-
-    if (hasScrollTrigger) {
-      window.gsap.registerPlugin(window.ScrollTrigger);
-    }
-
-    // Loader + initial reveal
-    const tl = window.gsap.timeline();
-    tl.to(".loader-text", { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" })
-      .to(".loader", { y: "-100%", duration: 0.9, delay: 0.35, ease: "power4.inOut" })
-      .to(
-        ".reveal-on-load",
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: "power2.out" },
-        "-=0.15"
-      );
-
-    if (!hasScrollTrigger) return;
-
-    // Section reveals
-    document.querySelectorAll('[data-reveal="left"]').forEach((el) => {
-      window.gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        x: -50,
-        opacity: 0,
-        duration: 0.9,
-        ease: "power3.out",
-      });
-    });
-
-    document.querySelectorAll('[data-reveal="right"]').forEach((el) => {
-      window.gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        x: 50,
-        opacity: 0,
-        duration: 0.9,
-        delay: 0.1,
-        ease: "power3.out",
-      });
-    });
-
-    // Service cards
-    window.gsap.from(".service-card", {
-      scrollTrigger: { trigger: "#sections", start: "top 75%" },
-      y: 40,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.15,
-      ease: "power2.out",
-    });
-
-    // Hero parallax
-    window.gsap.to(".hero-img", {
-      scrollTrigger: {
-        trigger: "#home",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      y: 90,
-      scale: 1.08,
-    });
-
-    // Count-up stats
-    document.querySelectorAll("[data-count]").forEach((el) => {
-      const end = Number(el.getAttribute("data-count") || "0");
-      const obj = { val: 0 };
-
-      window.gsap.to(obj, {
-        val: end,
-        duration: 1.2,
-        ease: "power1.out",
-        snap: { val: 1 },
-        onUpdate: () => {
-          el.textContent = String(Math.round(obj.val));
-        },
-        scrollTrigger: { trigger: el, start: "top 85%" },
-      });
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    applyBrand();
-    applyCTALinks();
-    initMobileMenu();
-    initNavbarScroll();
-
-    try {
-      initAnimations();
-    } catch {
-      showFallback();
-    }
+  // 1. Hero Load Entry Animation
+  const heroTl = gsap.timeline();
+  
+  heroTl.from('.navbar', {
+    y: -60,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out'
   });
-})();
+
+  heroTl.from('.hero-tag', {
+    y: 15,
+    opacity: 0,
+    duration: 0.5,
+    ease: 'power1.out'
+  }, '-=0.3');
+
+  heroTl.from('.hero-title', {
+    y: 20,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power2.out'
+  }, '-=0.3');
+
+  heroTl.from('.hero-desc', {
+    y: 15,
+    opacity: 0,
+    duration: 0.5,
+    ease: 'power1.out'
+  }, '-=0.4');
+
+  heroTl.from('.hero-buttons .btn', {
+    y: 10,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.4,
+    ease: 'power1.out'
+  }, '-=0.3');
+
+  heroTl.from('#hero-trust-rating', {
+    opacity: 0,
+    y: 10,
+    duration: 0.4
+  }, '-=0.2');
+
+  heroTl.from('.hero-video-bg', {
+    scale: 1.05,
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power2.out'
+  }, '-=0.8');
+
+  heroTl.from('.hero-video-overlay', {
+    opacity: 0,
+    duration: 0.8
+  }, '-=0.8');
+
+  // 2. Services Section Reveal (Fixed Trigger to 95% and Cleaner selector)
+  gsap.from('.services-section .section-header', {
+    scrollTrigger: {
+      trigger: '.services-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    y: 15,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
+
+  gsap.from('.service-card', {
+    scrollTrigger: {
+      trigger: '.services-grid',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    y: 20,
+    stagger: 0.05,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
+
+  // 3. Locations Section Reveal
+  gsap.from('.locations-text-col', {
+    scrollTrigger: {
+      trigger: '.locations-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: -30,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power2.out'
+  });
+
+  gsap.from('.locations-image-col', {
+    scrollTrigger: {
+      trigger: '.locations-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: 30,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out'
+  });
+
+  // 4. Meet Our Story & Social Impact Section (Founder Portrait Split)
+  gsap.from('#story-content-col', {
+    scrollTrigger: {
+      trigger: '.story-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: 30,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power2.out'
+  });
+
+  gsap.from('#story-founder-photo', {
+    scrollTrigger: {
+      trigger: '.story-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: -30,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out'
+  });
+
+  gsap.from('.story-stat-item', {
+    scrollTrigger: {
+      trigger: '.story-stats-row',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    y: 15,
+    opacity: 0,
+    stagger: 0.08,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
+
+  // 5. App Section
+  gsap.from('.app-text-col', {
+    scrollTrigger: {
+      trigger: '.app-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: -30,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power2.out'
+  });
+
+  gsap.from('.app-mockup-col', {
+    scrollTrigger: {
+      trigger: '.app-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    x: 30,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out'
+  });
+
+  // 6. CTA Banner
+  gsap.from('.cta-container', {
+    scrollTrigger: {
+      trigger: '#ready-cta',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    scale: 0.98,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power1.out'
+  });
+
+  // 7. Reviews Section
+  gsap.from('.reviews-section .section-header', {
+    scrollTrigger: {
+      trigger: '.reviews-section',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    y: 15,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
+
+  gsap.from('.review-card', {
+    scrollTrigger: {
+      trigger: '.reviews-carousel-wrapper',
+      start: 'top 95%',
+      toggleActions: 'play none none none'
+    },
+    y: 20,
+    stagger: 0.08,
+    duration: 0.5,
+    ease: 'power2.out'
+  });
+
+  // Testimonials slide transitions (dummy arrow support)
+  const arrowTPrev = document.getElementById('rev-prev-arrow');
+  const arrowTNext = document.getElementById('rev-next-arrow');
+  if (arrowTPrev && arrowTNext) {
+    const handleTestimonialTransition = () => {
+      gsap.fromTo('.review-card', 
+        { scale: 0.98, opacity: 1 },
+        { scale: 1, opacity: 1, stagger: 0.05, duration: 0.4, ease: 'power1.out' }
+      );
+    };
+
+    arrowTPrev.addEventListener('click', handleTestimonialTransition);
+    arrowTNext.addEventListener('click', handleTestimonialTransition);
+  }
+
+  // =========================================================================
+  // Recalculate ScrollTrigger points after page is fully loaded
+  // (Fixes markers off-sync when slow images load later and expand layouts)
+  // =========================================================================
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+
+});
+
