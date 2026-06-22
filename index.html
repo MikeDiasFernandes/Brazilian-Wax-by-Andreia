@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentic Brazilian Wax by Andreia</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="main-header">
+    <div class="navbar-container">
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-top">Authentic</span>
+        <span class="logo-mid">Brazilian Wax</span>
+        <span class="logo-badge">by Andreia</span>
+      </a>
+      
+      <nav class="nav-links" aria-label="Main Navigation">
+        <div class="dropdown">
+          <a href="#" class="dropdown-trigger" id="services-her-trigger">SERVICES FOR HER <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Brazilian Waxing</a>
+            <a href="#">Body Waxing</a>
+            <a href="#">Facial Waxing</a>
+            <a href="#">Skincare Treatments</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#" class="dropdown-trigger" id="services-him-trigger">SERVICES FOR HIM <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Back & Shoulder</a>
+            <a href="#">Chest & Stomach</a>
+            <a href="#">Facial & Brow</a>
+          </div>
+        </div>
+        <a href="#locations" id="nav-locations">LOCATIONS</a>
+        <a href="#our-story" id="nav-story">OUR STORY</a>
+        <a href="#app-download" id="nav-app">DOWNLOAD APP</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#book-online" class="btn btn-primary btn-book" id="nav-book-btn">BOOK ONLINE</a>
+      </div>
+
+      <div class="mobile-toggle" id="mobile-menu-btn" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-header">
+        <a href="#" class="logo">
+          <span class="logo-top">Authentic</span>
+          <span class="logo-mid">Brazilian Wax</span>
+          <span class="logo-badge">by Andreia</span>
+        </a>
+        <i class="fa-solid fa-xmark drawer-close" id="drawer-close-btn" aria-label="Close Menu"></i>
+      </div>
+      <div class="drawer-links">
+        <a href="#">SERVICES FOR HER</a>
+        <a href="#">SERVICES FOR HIM</a>
+        <a href="#locations">LOCATIONS</a>
+        <a href="#our-story">OUR STORY</a>
+        <a href="#app-download">DOWNLOAD APP</a>
+        <a href="#book-online" class="btn btn-primary">BOOK ONLINE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <video autoplay muted loop playsinline class="hero-video-bg">
+      <source src="7324938-uhd_2880_2160_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    
+    <div class="hero-container container-centered">
+      <div class="hero-text-col text-center-align">
+        <span class="hero-tag">EXPERIENCE THE DIFFERENCE</span>
+        <h1 class="hero-title">
+          More than a wax.<br>
+          <span class="highlight-italic">It's a feeling.</span>
+        </h1>
+        <p class="hero-desc">
+          Clean, professional, and unapologetically Brazilian. Experience premium waxing designed around your complete comfort.
+        </p>
+        <div class="hero-buttons">
+          <a href="#book-online" class="btn btn-primary" id="hero-book-btn">BOOK APPOINTMENT</a>
+          <a href="#locations" class="btn btn-secondary-white" id="hero-locations-btn">FIND A LOCATION</a>
+        </div>
+        <div class="hero-rating" id="hero-trust-rating">
+          <span class="rating-text">Trusted by thousands of clients</span>
+          <div class="rating-stars-container">
+            <div class="stars" aria-label="5 star rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="rating-val">4.9 (2,300+ reviews)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <span class="section-tag">OUR SERVICES</span>
+      <h2 class="section-title">Expert Waxing. Every Body.</h2>
+    </div>
+    <div class="services-grid">
+      <!-- Service Card 1 -->
+      <div class="service-card" id="card-brazilian">
+        <div class="service-card-image-wrapper">
+          <img src="service_brazilian.png" alt="Brazilian Wax" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 2C20 2 12 18 12 32c0 10.5 6 22 20 28 14-6 20-17.5 20-28C52 18 44 2 32 2zm0 54c-11-5.5-16-15-16-24 0-11 6-22 16-22s16 11 16 22c0 9-5 18.5-16 24z"/>
+              <path d="M22 30h20v4H22z"/>
+            </svg>
+          </div>
+          <h3>Brazilian Wax</h3>
+          <p>The original. The best.</p>
+        </div>
+      </div>
+      <!-- Service Card 2 -->
+      <div class="service-card" id="card-body">
+        <div class="service-card-image-wrapper">
+          <img src="service_body.png" alt="Body Waxing" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 4c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S37.5 4 32 4zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm17.5 14.8c-.8-.8-2-1.2-3.1-.9L38 36.3V28c0-3.3-2.7-6-6-6s-6 2.7-6 6v8.3l-8.4-2.4c-1.1-.3-2.3.1-3.1.9-1.2 1.2-1.2 3.1 0 4.3L26 50.6V60h12v-9.4l11.5-11.5c1.2-1.2 1.2-3.1 0-4.3zM34 56h-4v-7.2l-6-6-7.8-7.8.6-.6 9.2 2.6V28c0-1.1.9-2 2-2s2 .9 2 2v9l9.2-2.6.6.6-7.8 7.8-6 6V56z"/>
+            </svg>
+          </div>
+          <h3>Body Waxing</h3>
+          <p>Smooth from head to toe.</p>
+        </div>
+      </div>
+      <!-- Service Card 3 -->
+      <div class="service-card" id="card-facial">
+        <div class="service-card-image-wrapper">
+          <img src="service_facial.png" alt="Facial Waxing" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 6C17.6 6 6 17.6 6 32s11.6 26 26 26 26-11.6 26-26S46.4 6 32 6zm0 48c-12.1 0-22-9.9-22-22s9.9-22 22-22 22 9.9 22 22-9.9 22-22 22zm-7.5-30c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm15 0c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zM32 46c5.8 0 10.9-3.4 13.2-8.3H18.8C21.1 42.6 26.2 46 32 46z"/>
+            </svg>
+          </div>
+          <h3>Facial Waxing</h3>
+          <p>For glowing, confident skin.</p>
+        </div>
+      </div>
+      <!-- Service Card 4 -->
+      <div class="service-card" id="card-him">
+        <div class="service-card-image-wrapper">
+          <img src="service_him.png" alt="For Him" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 10c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8m0-4c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm16 46v-6c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v6h4v-6c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8v6h4z"/>
+            </svg>
+          </div>
+          <h3>For Him</h3>
+          <p>Comfortable. Professional.</p>
+        </div>
+      </div>
+      <!-- Service Card 5 -->
+      <div class="service-card" id="card-skincare">
+        <div class="service-card-image-wrapper">
+          <img src="service_skincare.png" alt="Skin Care" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 4C20 4 10 14 10 26c0 14 22 34 22 34s22-20 22-34C54 14 44 4 32 4zm0 30c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+            </svg>
+          </div>
+          <h3>Skin Care</h3>
+          <p>Healthy, beautiful skin.</p>
+        </div>
+      </div>
+      <!-- Service Card 6 -->
+      <div class="service-card" id="card-membership">
+        <div class="service-card-image-wrapper">
+          <img src="service_membership.png" alt="Memberships" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M52 12H12c-2.2 0-4 1.8-4 4v32c0 2.2 1.8 4 4 4h40c2.2 0 4-1.8 4-4V16c0-2.2-1.8-4-4-4zm0 36H12V16h40v32zm-28-6h16v-4H24v4zm0-8h16v-4H24v4zm0-8h16v-4H24v4z"/>
+            </svg>
+          </div>
+          <h3>Memberships</h3>
+          <p>More benefits. More savings.</p>
+        </div>
+      </div>
+    </div>
+    <div class="services-footer">
+      <a href="#" class="btn btn-secondary">VIEW ALL SERVICES</a>
+    </div>
+  </section>
+
+  <!-- Locations Section -->
+  <section class="locations-section" id="locations">
+    <div class="locations-container">
+      <div class="locations-text-col">
+        <span class="section-tag">WE'RE GROWING</span>
+        <h2 class="locations-title">40+ Studios Across the Southeast</h2>
+        <p class="locations-desc">
+          Experience clean, comfortable beauty in premium environments designed entirely with your relaxation and wellness in mind.
+        </p>
+        <a href="#" class="btn btn-primary" id="find-studios-btn">FIND YOUR LOCATION</a>
+      </div>
+      <div class="locations-image-col">
+        <div class="salon-image-wrapper">
+          <img src="salon_exterior.png" alt="Sleek storefront of Authentic Brazilian Wax Studio" class="salon-img">
+          <div class="salon-image-overlay"></div>
+          
+          <!-- Location Details Overlay Card -->
+          <div class="location-overlay-card" id="location-info-card">
+            <h4 class="location-name">Marietta - Powers Ferry Rd</h4>
+            <p class="location-address">80 Powers Ferry Rd, Marietta, GA 30067</p>
+            <a href="tel:7705705201" class="location-phone" id="location-phone-link"><i class="fa-solid fa-phone"></i> 770-570-5201</a>
+            <a href="#" class="location-link">VIEW DETAILS <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          
+          <!-- Navigation Arrows -->
+          <div class="slider-arrows">
+            <div class="arrow arrow-prev" id="loc-prev-arrow" aria-label="Previous Location"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="arrow arrow-next" id="loc-next-arrow" aria-label="Next Location"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Storytelling & Social Impact Section -->
+  <section class="story-section" id="our-story">
+    <div class="story-container">
+      <div class="story-split-layout">
+        
+        <!-- Left Side: Andreia's Portrait -->
+        <div class="story-photo-col" id="story-founder-photo">
+          <div class="story-founder-image-wrapper">
+            <img src="/subscribe-3.png" alt="Andreia, Founder of Authentic Brazilian Wax" class="story-founder-img">
+          </div>
+        </div>
+
+        <!-- Right Side: Storytelling Text & Stats -->
+        <div class="story-text-col" id="story-content-col">
+          <span class="section-tag">FROM DREAMS TO IMPACT</span>
+          <h2 class="story-title">A Journey of Purpose</h2>
+          <div class="story-narrative">
+            <p>
+              Andreia's empire began in the driver's seat of an iconic pink Beetle, bringing beauty services directly to her first clients. That same spirit of determination now drives a larger global mission.
+            </p>
+            <p>
+              Today, a portion of every waxing session directly supports humanitarian efforts in Africa—building clean water wells and establishing educational centers to bring life-changing opportunities to vulnerable families.
+            </p>
+          </div>
+
+          <!-- Stats Block -->
+          <div class="story-stats-row">
+            <div class="story-stat-item">
+              <span class="stat-num">20+</span>
+              <span class="stat-txt">Years of Grit</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-num">40+</span>
+              <span class="stat-txt">Studios</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-num">100+</span>
+              <span class="stat-txt">Professionals</span>
+            </div>
+          </div>
+
+          <!-- Story Action Button -->
+          <div class="story-action" id="story-btn-container">
+            <a href="#full-story" class="btn btn-primary" id="btn-read-story">READ OUR FULL STORY</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download Section (Custom HTML Mockup) -->
+  <section class="app-section" id="app-download">
+    <div class="app-container">
+      <div class="app-text-col">
+        <span class="app-tag">✦ AVAILABLE NOW</span>
+        <h2 class="app-title-outlined">
+          DOWNLOAD<br><span class="outlined-pink-text">OUR MOBILE APP</span>
+        </h2>
+        <p class="app-desc">
+          Schedule bookings in under 10 seconds, track your membership points, and shop our exclusive line of Brazilian skincare products.
+        </p>
+
+        <div class="subscribe-tags">
+          <span class="tag-chip">★ Booking 24/7</span>
+          <span class="tag-chip">◆ Skincare Shop</span>
+          <span class="tag-chip">🔥 Rewards & Tips</span>
+        </div>
+
+        <div class="download-buttons">
+          <a href="https://www.apple.com/app-store/" target="_blank" class="store-btn" id="app-store-download">
+            <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+            </svg>
+            <div class="store-btn-texts">
+              <span>DOWNLOAD ON THE</span>
+              <span>App Store</span>
+            </div>
+          </a>
+          <a href="https://play.google.com/store" target="_blank" class="store-btn" id="google-play-download">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+            </svg>
+            <div class="store-btn-texts">
+              <span>GET IT ON</span>
+              <span>Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <div class="app-mockup-col">
+        <div class="mockup-circle"></div>
+        <div class="iphone-mockup" id="app-phone-mockup">
+          <div class="iphone-island"></div>
+          <div class="iphone-screen">
+            <div class="app-ui">
+              <div class="app-ui-header">AUTHENTIC BRAZILIAN WAX</div>
+              <div class="app-ui-banner">
+                <span class="app-ui-banner-chip">STUDIO BOOKING APP</span>
+              </div>
+              <div class="app-ui-content">
+                <div class="app-ui-title">SERVICES &amp; OFFERS</div>
+                <div class="app-ui-list">
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">✦</div>
+                    <div class="app-ui-text">Book waxing sessions in under 10 seconds</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">🛍️</div>
+                    <div class="app-ui-text">Shop authentic Brazilian skincare products</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">✨</div>
+                    <div class="app-ui-text">Earn loyalty points and app-only rewards</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">📅</div>
+                    <div class="app-ui-text">Track schedule &amp; get immediate notifications</div>
+                  </div>
+                </div>
+                <button class="app-ui-btn">Schedule Appointment Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="cta-banner" id="ready-cta">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Feel Your Best?</h2>
+      <p class="cta-subtitle">Book online in minutes.</p>
+      <a href="#book-online" class="btn btn-cta" id="cta-book-now">BOOK NOW</a>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header">
+      <span class="section-tag text-center">REVIEWS</span>
+      <h2 class="section-title text-center">Real people. Real results.</h2>
+    </div>
+    
+    <div class="reviews-carousel-wrapper">
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card" id="review-1">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Always the best experience! Clean, warm, and professional. The team goes above and beyond to make you feel comfortable."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Jessica M.</h5>
+              <span class="author-loc">Atlanta, GA</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Review 2 -->
+        <div class="review-card" id="review-2">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I won't go anywhere else. Andreia's studios maintain an impeccable standard of service and cleanliness."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Samantha R.</h5>
+              <span class="author-loc">Tampa, FL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card" id="review-3">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Worth every single minute. The service standard is completely unmatched. You walk out feeling confident and smooth."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Brenda L.</h5>
+              <span class="author-loc">Orlando, FL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Nav Arrows for Testimonials -->
+      <div class="testimonials-nav">
+        <div class="arrow-t arrow-t-prev" id="rev-prev-arrow" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="arrow-t arrow-t-next" id="rev-next-arrow" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></div>
+      </div>
+    </div>
+
+    <div class="reviews-footer">
+      <a href="#" class="btn btn-secondary">SEE MORE REVIEWS</a>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="footer-section">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <a href="#" class="logo">
+          <span class="logo-top">Authentic</span>
+          <span class="logo-mid">Brazilian Wax</span>
+          <span class="logo-badge">by Andreia</span>
+        </a>
+        <p class="brand-desc">
+          Providing smooth confidence and professional service daily. Unapologetically Brazilian.
+        </p>
+        <div class="social-links" aria-label="Social Media Links">
+          <a href="#" id="soc-instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" id="soc-facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" id="soc-tiktok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" id="soc-pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" id="soc-youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>QUICK LINKS</h3>
+        <ul class="footer-links">
+          <li><a href="#">Services for Her</a></li>
+          <li><a href="#">Services for Him</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#book-online">Book Online</a></li>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#app-download">Download App</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>POPULAR WAXES</h3>
+        <ul class="footer-links">
+          <li><a href="#">Brazilian Wax</a></li>
+          <li><a href="#">Full Body Wax</a></li>
+          <li><a href="#">Facial Wax</a></li>
+          <li><a href="#">Underarm Wax</a></li>
+          <li><a href="#">Bikini Wax</a></li>
+          <li><a href="#">Back Wax</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col-newsletter">
+        <h3>STAY IN TOUCH</h3>
+        <p>Get exclusive offers and tips delivered directly to your inbox.</p>
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" id="newsletter-form">
+          <input type="email" placeholder="Your email address" required class="subscribe-input" id="newsletter-email" aria-label="Email address for newsletter">
+          <button type="submit" class="btn btn-subscribe" id="newsletter-submit-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="copyright">&copy; 2026 Brazilian Wax by Andreia. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP Animation Library CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Custom JS File -->
+  <script src="javascript.js"></script>
+</body>
+</html>
