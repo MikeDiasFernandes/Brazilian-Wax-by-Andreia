@@ -1,530 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brazilian Wax by Andreia - Wax To Perfection</title>
-
-    <!-- ─── FONT AWESOME (ÍCONES) ─── -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- ─── GOOGLE FONTS ─── -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
-    
-    <!-- ─── TAILWIND CSS ─── -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- ─── GSAP (NECESSÁRIO PARA SEU JS) ─── -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
-    <!-- ─── SEU CSS PERSONALIZADO ─── -->
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentic Brazilian Wax by Andreia</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
-
-
 <body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="main-header">
+    <div class="navbar-container">
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-top">Authentic</span>
+        <span class="logo-mid">Brazilian Wax</span>
+        <span class="logo-badge">by Andreia</span>
+      </a>
+      
+      <nav class="nav-links" aria-label="Main Navigation">
+        <div class="dropdown">
+          <a href="#" class="dropdown-trigger" id="services-her-trigger">SERVICES FOR HER <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Brazilian Waxing</a>
+            <a href="#">Body Waxing</a>
+            <a href="#">Facial Waxing</a>
+            <a href="#">Skincare Treatments</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#" class="dropdown-trigger" id="services-him-trigger">SERVICES FOR HIM <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Back & Shoulder</a>
+            <a href="#">Chest & Stomach</a>
+            <a href="#">Facial & Brow</a>
+          </div>
+        </div>
+        <a href="#locations" id="nav-locations">LOCATIONS</a>
+        <a href="#our-story" id="nav-story">OUR STORY</a>
+        <a href="#app-download" id="nav-app">DOWNLOAD APP</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#book-online" class="btn btn-primary btn-book" id="nav-book-btn">BOOK ONLINE</a>
+      </div>
+
+      <div class="mobile-toggle" id="mobile-menu-btn" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <div class="drawer-header">
+        <a href="#" class="logo">
+          <span class="logo-top">Authentic</span>
+          <span class="logo-mid">Brazilian Wax</span>
+          <span class="logo-badge">by Andreia</span>
+        </a>
+        <i class="fa-solid fa-xmark drawer-close" id="drawer-close-btn" aria-label="Close Menu"></i>
+      </div>
+      <div class="drawer-links">
+        <a href="#">SERVICES FOR HER</a>
+        <a href="#">SERVICES FOR HIM</a>
+        <a href="#locations">LOCATIONS</a>
+        <a href="#our-story">OUR STORY</a>
+        <a href="#app-download">DOWNLOAD APP</a>
+        <a href="#book-online" class="btn btn-primary">BOOK ONLINE</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <video autoplay muted loop playsinline class="hero-video-bg">
+      <source src="7324938-uhd_2880_2160_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
     
-
-
-
-
-
-
-
-
-<!-- Tailwind Play CDN  -->
-
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            gold: "#C5A059",
-            pink: "#FF0066",
-            dark: "#121212",
-            gray: "#2A2A2A",
-            light: "#F5F5F0",
-          },
-        },
-        fontFamily: {
-          serif: ['"Cormorant Garamond"', "serif"],
-          sans: ['"Montserrat"', "sans-serif"],
-        },
-      },
-    },
-  };
-</script>
-
-<div class="loader" aria-hidden="true">
-  <div class="loader-text" data-brand-text>YOUR BRAND</div>
-</div>
-
-<nav
-  class="fixed w-full z-50 transition-all duration-300 px-6 py-4"
-  id="navbar"
-  aria-label="Primary"
->
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <a href="#home" class="flex items-center">
-      <img src="logo.png" alt="Brazilian Wax by Andreia" class="h-10 md:h-12 w-auto" />
-    </a>
-
-    <div class="hidden md:flex space-x-6 text-sm font-sans tracking-widest uppercase items-center">
-      <a href="#home" class="hover:text-brand-pink transition-colors">Home</a>
-      
-      <!-- Submenu Services -->
-      <div class="relative group">
-        <a href="#services-her" class="hover:text-brand-pink transition-colors flex items-center gap-1">Services <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
-        <div class="absolute left-0 top-full mt-2 w-48 bg-brand-dark border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col z-50">
-          <a href="#services-her" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Services for Her</a>
-          <a href="#services-him" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Services for Him</a>
-          <a href="#tips" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Waxing Tips</a>
+    <div class="hero-container container-centered">
+      <div class="hero-text-col text-center-align">
+        <span class="hero-tag">EXPERIENCE THE DIFFERENCE</span>
+        <h1 class="hero-title">
+          More than a wax.<br>
+          <span class="highlight-italic">It's a feeling.</span>
+        </h1>
+        <p class="hero-desc">
+          Clean, professional, and unapologetically Brazilian. Experience premium waxing designed around your complete comfort.
+        </p>
+        <div class="hero-buttons">
+          <a href="#book-online" class="btn btn-primary" id="hero-book-btn">BOOK APPOINTMENT</a>
+          <a href="#locations" class="btn btn-secondary-white" id="hero-locations-btn">FIND A LOCATION</a>
+        </div>
+        <div class="hero-rating" id="hero-trust-rating">
+          <span class="rating-text">Trusted by thousands of clients</span>
+          <div class="rating-stars-container">
+            <div class="stars" aria-label="5 star rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="rating-val">4.9 (2,300+ reviews)</span>
+          </div>
         </div>
       </div>
-      
-      <a href="#gallery" class="hover:text-brand-pink transition-colors">Gallery</a>
-      <a href="#reviews" class="hover:text-brand-pink transition-colors">Reviews</a>
-      <a href="#press" class="hover:text-brand-pink transition-colors">Press</a>
-      
-      <!-- Submenu Company -->
-      <div class="relative group">
-        <a href="#about" class="hover:text-brand-pink transition-colors flex items-center gap-1">Company <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
-        <div class="absolute left-0 top-full mt-2 w-48 bg-brand-dark border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 py-2 flex flex-col z-50">
-          <a href="#about" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">About</a>
-          <a href="#locations" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Locations</a>
-          <a href="#franchise" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Franchise</a>
-          <a href="#academy" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Academy</a>
-          <a href="#career" class="px-4 py-2 hover:bg-brand-pink hover:text-white transition-colors text-xs">Career</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <span class="section-tag">OUR SERVICES</span>
+      <h2 class="section-title">Expert Waxing. Every Body.</h2>
+    </div>
+    <div class="services-grid">
+      <!-- Service Card 1 -->
+      <div class="service-card" id="card-brazilian">
+        <div class="service-card-image-wrapper">
+          <img src="service_brazilian.png" alt="Brazilian Wax" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 2C20 2 12 18 12 32c0 10.5 6 22 20 28 14-6 20-17.5 20-28C52 18 44 2 32 2zm0 54c-11-5.5-16-15-16-24 0-11 6-22 16-22s16 11 16 22c0 9-5 18.5-16 24z"/>
+              <path d="M22 30h20v4H22z"/>
+            </svg>
+          </div>
+          <h3>Brazilian Wax</h3>
+          <p>The original. The best.</p>
         </div>
       </div>
-
-      <a href="#contact" class="hover:text-brand-pink transition-colors">Contact</a>
-    </div>
-
-    <a
-      href="#book-online"
-      class="hidden md:block px-6 py-2 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white transition-all duration-300 font-sans text-xs tracking-widest uppercase"
-      data-cta="primary"
-    >
-      Book Online
-    </a>
-
-    <button
-      id="menuBtn"
-      class="md:hidden text-white text-xl"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="mobileMenu"
-    >
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
-    </button>
-  </div>
-</nav>
-
-<div id="mobileMenu" class="fixed inset-0 z-[60] pointer-events-none">
-  <div class="absolute inset-0 bg-black/70 opacity-0" data-menu-backdrop></div>
-  <div
-    class="absolute top-0 left-0 right-0 bg-brand-dark border-b border-white/10 opacity-0 -translate-y-6"
-    data-menu-panel
-  >
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-      <div class="flex items-center">
-        <img src="logo.png" alt="Brazilian Wax by Andreia" class="h-10 w-auto" />
+      <!-- Service Card 2 -->
+      <div class="service-card" id="card-body">
+        <div class="service-card-image-wrapper">
+          <img src="service_body.png" alt="Body Waxing" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 4c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S37.5 4 32 4zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm17.5 14.8c-.8-.8-2-1.2-3.1-.9L38 36.3V28c0-3.3-2.7-6-6-6s-6 2.7-6 6v8.3l-8.4-2.4c-1.1-.3-2.3.1-3.1.9-1.2 1.2-1.2 3.1 0 4.3L26 50.6V60h12v-9.4l11.5-11.5c1.2-1.2 1.2-3.1 0-4.3zM34 56h-4v-7.2l-6-6-7.8-7.8.6-.6 9.2 2.6V28c0-1.1.9-2 2-2s2 .9 2 2v9l9.2-2.6.6.6-7.8 7.8-6 6V56z"/>
+            </svg>
+          </div>
+          <h3>Body Waxing</h3>
+          <p>Smooth from head to toe.</p>
+        </div>
       </div>
-      <button id="menuCloseBtn" class="text-white text-xl" aria-label="Close menu">
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 pb-6">
-      <div class="grid gap-4 font-sans tracking-widest uppercase text-sm" role="menu">
-        <a class="hover:text-brand-pink transition-colors" href="#home" data-menu-link>Home</a>
-        <a class="hover:text-brand-pink transition-colors text-xs text-brand-pink mt-2" href="#services-her" data-menu-link>-- Services for Her</a>
-        <a class="hover:text-brand-pink transition-colors text-xs text-brand-pink" href="#services-him" data-menu-link>-- Services for Him</a>
-        <a class="hover:text-brand-pink transition-colors text-xs text-brand-pink" href="#tips" data-menu-link>-- Waxing Tips</a>
-        <a class="hover:text-brand-pink transition-colors text-xs text-brand-pink" href="#locations" data-menu-link>-- Locations</a>
-        <a class="hover:text-brand-pink transition-colors text-xs text-brand-pink" href="#academy" data-menu-link>-- Academy</a>
-        <a class="hover:text-brand-pink transition-colors" href="#gallery" data-menu-link>Gallery</a>
-        <a class="hover:text-brand-pink transition-colors" href="#reviews" data-menu-link>Reviews</a>
-        <a class="hover:text-brand-pink transition-colors" href="#press" data-menu-link>Press</a>
-        <a class="hover:text-brand-pink transition-colors" href="#career" data-menu-link>Career</a>
-        <a class="hover:text-brand-pink transition-colors" href="#franchise" data-menu-link>Franchise</a>
-        <a class="hover:text-brand-pink transition-colors" href="#about" data-menu-link>About</a>
-        <a class="hover:text-brand-pink transition-colors" href="#contact" data-menu-link>Contact</a>
-
-        <a
-          class="mt-4 inline-flex justify-center px-6 py-3 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white transition-all duration-300 text-xs tracking-widest uppercase"
-          href="#book-online"
-          data-menu-link
-          data-cta="primary"
-          >Book Online</a
-        >
+      <!-- Service Card 3 -->
+      <div class="service-card" id="card-facial">
+        <div class="service-card-image-wrapper">
+          <img src="service_facial.png" alt="Facial Waxing" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 6C17.6 6 6 17.6 6 32s11.6 26 26 26 26-11.6 26-26S46.4 6 32 6zm0 48c-12.1 0-22-9.9-22-22s9.9-22 22-22 22 9.9 22 22-9.9 22-22 22zm-7.5-30c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm15 0c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zM32 46c5.8 0 10.9-3.4 13.2-8.3H18.8C21.1 42.6 26.2 46 32 46z"/>
+            </svg>
+          </div>
+          <h3>Facial Waxing</h3>
+          <p>For glowing, confident skin.</p>
+        </div>
+      </div>
+      <!-- Service Card 4 -->
+      <div class="service-card" id="card-him">
+        <div class="service-card-image-wrapper">
+          <img src="service_him.png" alt="For Him" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 10c4.4 0 8 3.6 8 8s-3.6 8-8 8-8-3.6-8-8 3.6-8 8-8m0-4c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12zm16 46v-6c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v6h4v-6c0-4.4 3.6-8 8-8h8c4.4 0 8 3.6 8 8v6h4z"/>
+            </svg>
+          </div>
+          <h3>For Him</h3>
+          <p>Comfortable. Professional.</p>
+        </div>
+      </div>
+      <!-- Service Card 5 -->
+      <div class="service-card" id="card-skincare">
+        <div class="service-card-image-wrapper">
+          <img src="service_skincare.png" alt="Skin Care" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M32 4C20 4 10 14 10 26c0 14 22 34 22 34s22-20 22-34C54 14 44 4 32 4zm0 30c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+            </svg>
+          </div>
+          <h3>Skin Care</h3>
+          <p>Healthy, beautiful skin.</p>
+        </div>
+      </div>
+      <!-- Service Card 6 -->
+      <div class="service-card" id="card-membership">
+        <div class="service-card-image-wrapper">
+          <img src="service_membership.png" alt="Memberships" class="service-card-img">
+        </div>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="currentColor">
+              <path d="M52 12H12c-2.2 0-4 1.8-4 4v32c0 2.2 1.8 4 4 4h40c2.2 0 4-1.8 4-4V16c0-2.2-1.8-4-4-4zm0 36H12V16h40v32zm-28-6h16v-4H24v4zm0-8h16v-4H24v4zm0-8h16v-4H24v4z"/>
+            </svg>
+          </div>
+          <h3>Memberships</h3>
+          <p>More benefits. More savings.</p>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-<header id="home" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-  <div class="absolute inset-0 z-0">
-    <div class="absolute inset-0 bg-black/50 z-10"></div>
-    <img
-      src="Andreia.png"
-      alt="Hero background"
-      class="w-full h-full object-cover hero-img"
-      fetchpriority="high"
-    />
-    <div class="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent z-10 pointer-events-none"></div>
-  </div>
-
-  <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
-    <p
-      class="hero-subtitle reveal-on-load text-brand-pink font-sans text-sm md:text-base tracking-[0.3em] uppercase mb-4"
-    >
-      <span data-brand-tagline>WAX TO PERFECTION.</span>
-    </p>
-
-    <h1
-      class="hero-title reveal-on-load text-5xl md:text-7xl lg:text-9xl font-serif font-light text-white mb-6 leading-tight"
-    >
-      Wax to <span class="italic text-brand-pink">perfection</span>
-    </h1>
-
-    <p class="hero-text reveal-on-load text-gray-300 font-sans font-light max-w-lg mx-auto mb-10 text-lg">
-      Experience the premium waxing services that leave your skin flawlessly smooth. Discover the standard of perfection in the Southeast.
-    </p>
-
-    <div class="hero-btn reveal-on-load flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="#services-her"
-        class="group relative inline-flex items-center justify-start overflow-hidden rounded bg-white px-8 py-4 transition-all hover:bg-white"
-        data-cta="secondary"
-      >
-        <span
-          class="absolute bottom-0 left-0 mb-9 ml-9 h-48 w-48 -translate-x-full translate-y-full rotate-45 rounded bg-brand-pink transition-all duration-500 ease-out group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"
-        ></span>
-        <span
-          class="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white font-sans uppercase tracking-wider text-sm"
-        >
-          View Services
-        </span>
-      </a>
-
-      <a
-        href="#book-online"
-        class="inline-flex items-center justify-center px-8 py-4 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white transition-all duration-300 font-sans text-sm tracking-widest uppercase rounded"
-        data-cta="primary"
-      >
-        Book Online
-      </a>
+    <div class="services-footer">
+      <a href="#" class="btn btn-secondary">VIEW ALL SERVICES</a>
     </div>
-  </div>
+  </section>
 
-  <div
-    class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-70 animate-bounce"
-  >
-    <span class="text-[10px] uppercase tracking-widest mb-2 text-gray-400">Scroll</span>
-    <div class="w-[1px] h-12 bg-gradient-to-b from-brand-gold to-transparent"></div>
-  </div>
-</header>
+  <!-- Locations Section -->
+  <section class="locations-section" id="locations">
+    <div class="locations-container">
+      <div class="locations-text-col">
+        <span class="section-tag">WE'RE GROWING</span>
+        <h2 class="locations-title">40+ Studios Across the Southeast</h2>
+        <p class="locations-desc">
+          Experience clean, comfortable beauty in premium environments designed entirely with your relaxation and wellness in mind.
+        </p>
+        <a href="#" class="btn btn-primary" id="find-studios-btn">FIND YOUR LOCATION</a>
+      </div>
+      <div class="locations-image-col">
+        <div class="salon-image-wrapper">
+          <img src="salon_exterior.png" alt="Sleek storefront of Authentic Brazilian Wax Studio" class="salon-img">
+          <div class="salon-image-overlay"></div>
+          
+          <!-- Location Details Overlay Card -->
+          <div class="location-overlay-card" id="location-info-card">
+            <h4 class="location-name">Marietta - Powers Ferry Rd</h4>
+            <p class="location-address">80 Powers Ferry Rd, Marietta, GA 30067</p>
+            <a href="tel:7705705201" class="location-phone" id="location-phone-link"><i class="fa-solid fa-phone"></i> 770-570-5201</a>
+            <a href="#" class="location-link">VIEW DETAILS <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          
+          <!-- Navigation Arrows -->
+          <div class="slider-arrows">
+            <div class="arrow arrow-prev" id="loc-prev-arrow" aria-label="Previous Location"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="arrow arrow-next" id="loc-next-arrow" aria-label="Next Location"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<main>
-  <section id="services-her" class="py-24 bg-brand-dark relative">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-      <div data-reveal="left">
-        <h2 class="text-4xl md:text-6xl font-serif mb-6 leading-none">
-          Services <br />
-          <span class="text-brand-pink text-6xl md:text-8xl">for Her</span>
+  <!-- Storytelling & Social Impact Section -->
+  <section class="story-section" id="our-story">
+    <div class="story-container">
+      <div class="story-split-layout">
+        
+        <!-- Left Side: Andreia's Portrait -->
+        <div class="story-photo-col" id="story-founder-photo">
+          <div class="story-founder-image-wrapper">
+            <img src="/subscribe-3.png" alt="Andreia, Founder of Authentic Brazilian Wax" class="story-founder-img">
+          </div>
+        </div>
+
+        <!-- Right Side: Storytelling Text & Stats -->
+        <div class="story-text-col" id="story-content-col">
+          <span class="section-tag">FROM DREAMS TO IMPACT</span>
+          <h2 class="story-title">A Journey of Purpose</h2>
+          <div class="story-narrative">
+            <p>
+              Andreia's empire began in the driver's seat of an iconic pink Beetle, bringing beauty services directly to her first clients. That same spirit of determination now drives a larger global mission.
+            </p>
+            <p>
+              Today, a portion of every waxing session directly supports humanitarian efforts in Africa—building clean water wells and establishing educational centers to bring life-changing opportunities to vulnerable families.
+            </p>
+          </div>
+
+          <!-- Stats Block -->
+          <div class="story-stats-row">
+            <div class="story-stat-item">
+              <span class="stat-num">20+</span>
+              <span class="stat-txt">Years of Grit</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-num">40+</span>
+              <span class="stat-txt">Studios</span>
+            </div>
+            <div class="story-stat-item">
+              <span class="stat-num">100+</span>
+              <span class="stat-txt">Professionals</span>
+            </div>
+          </div>
+
+          <!-- Story Action Button -->
+          <div class="story-action" id="story-btn-container">
+            <a href="#full-story" class="btn btn-primary" id="btn-read-story">READ OUR FULL STORY</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download Section (Custom HTML Mockup) -->
+  <section class="app-section" id="app-download">
+    <div class="app-container">
+      <div class="app-text-col">
+        <span class="app-tag">✦ AVAILABLE NOW</span>
+        <h2 class="app-title-outlined">
+          DOWNLOAD<br><span class="outlined-pink-text">OUR MOBILE APP</span>
         </h2>
-        <div class="w-20 h-1 bg-brand-pink mb-8"></div>
-
-        <p class="text-gray-400 font-sans font-light leading-relaxed mb-6">
-          Tailored explicitly for women, our premium waxing treatments ensure you receive the most comfortable, long-lasting smoothness possible.
+        <p class="app-desc">
+          Schedule bookings in under 10 seconds, track your membership points, and shop our exclusive line of Brazilian skincare products.
         </p>
 
-        <ul class="space-y-4 font-sans text-sm tracking-wide text-gray-300 mb-8">
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Brazilian Waxing:</span> The complete, flawless finish.
-          </li>
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Full Body Waxing:</span> Comprehensive smoothness, from head to toe.
-          </li>
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Leg Waxing:</span> Silky soft legs ready for any occasion.
-          </li>
-        </ul>
-        
-        <a
-          href="#book-online"
-          class="inline-block text-xs uppercase tracking-widest border-b border-brand-pink pb-1 text-brand-pink"
-          data-cta="primary"
-        >
-          Book Your Appointment
-        </a>
-      </div>
+        <div class="subscribe-tags">
+          <span class="tag-chip">★ Booking 24/7</span>
+          <span class="tag-chip">◆ Skincare Shop</span>
+          <span class="tag-chip">🔥 Rewards & Tips</span>
+        </div>
 
-      <div class="relative" data-reveal="right">
-        <div class="absolute -top-4 -left-4 w-full h-full border border-brand-gold/30 z-0"></div>
-
-        <div class="img-container showcase-frame relative z-10 h-[500px]">
-          <img
-            src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop"
-            alt="Services for Her"
-            class="w-full h-full object-cover"
-          />
+        <div class="download-buttons">
+          <a href="https://www.apple.com/app-store/" target="_blank" class="store-btn" id="app-store-download">
+            <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+            </svg>
+            <div class="store-btn-texts">
+              <span>DOWNLOAD ON THE</span>
+              <span>App Store</span>
+            </div>
+          </a>
+          <a href="https://play.google.com/store" target="_blank" class="store-btn" id="google-play-download">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+            </svg>
+            <div class="store-btn-texts">
+              <span>GET IT ON</span>
+              <span>Google Play</span>
+            </div>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="services-him" class="py-24 bg-brand-gray relative">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
       
-      <div class="relative" data-reveal="left">
-        <div class="absolute -top-4 -left-4 w-full h-full border border-brand-pink/30 z-0"></div>
-
-        <div class="img-container showcase-frame relative z-10 h-[500px]">
-          <img
-            src="https://images.unsplash.com/photo-1618716060974-98b20e2395cd?q=80&w=1000&auto=format&fit=crop"
-            alt="Services for Him"
-            class="w-full h-full object-cover"
-          />
+      <div class="app-mockup-col">
+        <div class="mockup-circle"></div>
+        <div class="iphone-mockup" id="app-phone-mockup">
+          <div class="iphone-island"></div>
+          <div class="iphone-screen">
+            <div class="app-ui">
+              <div class="app-ui-header">AUTHENTIC BRAZILIAN WAX</div>
+              <div class="app-ui-banner">
+                <span class="app-ui-banner-chip">STUDIO BOOKING APP</span>
+              </div>
+              <div class="app-ui-content">
+                <div class="app-ui-title">SERVICES &amp; OFFERS</div>
+                <div class="app-ui-list">
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">✦</div>
+                    <div class="app-ui-text">Book waxing sessions in under 10 seconds</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">🛍️</div>
+                    <div class="app-ui-text">Shop authentic Brazilian skincare products</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">✨</div>
+                    <div class="app-ui-text">Earn loyalty points and app-only rewards</div>
+                  </div>
+                  <div class="app-ui-item">
+                    <div class="app-ui-icon">📅</div>
+                    <div class="app-ui-text">Track schedule &amp; get immediate notifications</div>
+                  </div>
+                </div>
+                <button class="app-ui-btn">Schedule Appointment Now</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div data-reveal="right">
-        <h2 class="text-4xl md:text-6xl font-serif mb-6 leading-none">
-          Services <br />
-          <span class="text-brand-pink text-6xl md:text-8xl">for Him</span>
-        </h2>
-        <div class="w-20 h-1 bg-brand-pink mb-8"></div>
+  <!-- CTA Banner Section -->
+  <section class="cta-banner" id="ready-cta">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Feel Your Best?</h2>
+      <p class="cta-subtitle">Book online in minutes.</p>
+      <a href="#book-online" class="btn btn-cta" id="cta-book-now">BOOK NOW</a>
+    </div>
+  </section>
 
-        <p class="text-gray-400 font-sans font-light leading-relaxed mb-6">
-          Modern men deserve premium care. Our specialized techniques are designed specifically for male physiology, offering a comfortable and highly effective waxing experience.
-        </p>
-
-        <ul class="space-y-4 font-sans text-sm tracking-wide text-gray-300 mb-8">
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Male Brazilian:</span> Complete and professional hair removal.
-          </li>
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Buttocks Waxing:</span> Smooth results for athletic needs.
-          </li>
-          <li class="flex items-center">
-            <i class="fa-solid fa-check text-brand-pink mr-4" aria-hidden="true"></i>
-            <span class="text-brand-pink font-bold mr-2">Stomach Waxing:</span> Enhance your physique with a clean look.
-          </li>
-        </ul>
+  <!-- Reviews Section -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header">
+      <span class="section-tag text-center">REVIEWS</span>
+      <h2 class="section-title text-center">Real people. Real results.</h2>
+    </div>
+    
+    <div class="reviews-carousel-wrapper">
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card" id="review-1">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Always the best experience! Clean, warm, and professional. The team goes above and beyond to make you feel comfortable."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Jessica M.</h5>
+              <span class="author-loc">Atlanta, GA</span>
+            </div>
+          </div>
+        </div>
         
-        <a
-          href="#book-online"
-          class="inline-block text-xs uppercase tracking-widest border-b border-brand-pink pb-1 text-brand-pink"
-          data-cta="primary"
-        >
-          Book Your Appointment
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <section
-    class="relative py-32 bg-fixed bg-center bg-cover"
-    style="background-image:url('mulheres.png');"
-    aria-label="Quote"
-  >
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="relative z-10 text-center max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl md:text-6xl font-serif italic text-white mb-8">
-        “The standard of perfection.”
-      </h2>
-
-      <div class="flex justify-center space-x-12 mt-12">
-        <div class="text-center">
-          <span class="block text-4xl md:text-5xl font-serif text-brand-pink" data-count="36">0</span>
-          <span class="text-xs uppercase tracking-widest text-white mt-2 block">Salons in the Southeast</span>
-        </div>
-        <div class="text-center">
-          <span class="block text-4xl md:text-5xl font-serif text-brand-pink" data-count="15">0</span>
-          <span class="text-xs uppercase tracking-widest text-white mt-2 block">Years of Excellence</span>
-        </div>
-        <div class="text-center">
-          <span class="block text-4xl md:text-5xl font-serif text-brand-pink" data-count="100">0</span>
-          <span class="text-xs uppercase tracking-widest text-white mt-2 block">% Customer Satisfaction</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="py-24 bg-brand-dark">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-        <div>
-          <span class="text-brand-pink font-sans text-xs tracking-[0.2em] uppercase">Portfolio</span>
-          <h2 class="text-4xl md:text-5xl font-serif mt-4">Our Work</h2>
-        </div>
-        <a
-          href="#book-online"
-          class="hidden md:block text-sm font-sans uppercase tracking-widest border-b border-white hover:text-brand-pink hover:border-brand-pink transition-colors pb-1"
-          data-cta="primary"
-        >
-          Book Your Session
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[800px]">
-        <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden cursor-pointer">
-          <img
-            src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1200&auto=format&fit=crop"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Facial Waxing"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-          >
-            <div class="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              <h4 class="font-serif text-2xl italic">Facial Waxing</h4>
-              <p class="text-xs uppercase tracking-widest mt-2">Smooth Finish</p>
+        <!-- Review 2 -->
+        <div class="review-card" id="review-2">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-text">
+            "I won't go anywhere else. Andreia's studios maintain an impeccable standard of service and cleanliness."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Samantha R.</h5>
+              <span class="author-loc">Tampa, FL</span>
             </div>
           </div>
         </div>
 
-        <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden cursor-pointer">
-          <img
-            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Body Treatment"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-          >
-            <div class="text-center"><h4 class="font-serif text-xl italic">Body Waxing</h4></div>
+        <!-- Review 3 -->
+        <div class="review-card" id="review-3">
+          <div class="stars pink-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
-        </div>
-
-        <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden cursor-pointer">
-          <img
-            src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=1200&auto=format&fit=crop"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Spa Environment"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-          >
-            <div class="text-center"><h4 class="font-serif text-xl italic">Our Salons</h4></div>
-          </div>
-        </div>
-
-        <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden cursor-pointer">
-          <img
-            src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1200&auto=format&fit=crop"
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            alt="Premium Products"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-          >
-            <div class="text-center"><h4 class="font-serif text-xl italic">Premium Care</h4></div>
+          <p class="review-text">
+            "Worth every single minute. The service standard is completely unmatched. You walk out feeling confident and smooth."
+          </p>
+          <div class="review-author">
+            <div class="author-avatar"><i class="fa-solid fa-user-circle"></i></div>
+            <div class="author-info">
+              <h5 class="author-name">Brenda L.</h5>
+              <span class="author-loc">Orlando, FL</span>
+            </div>
           </div>
         </div>
       </div>
+      
+      <!-- Nav Arrows for Testimonials -->
+      <div class="testimonials-nav">
+        <div class="arrow-t arrow-t-prev" id="rev-prev-arrow" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="arrow-t arrow-t-next" id="rev-next-arrow" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></div>
+      </div>
+    </div>
+
+    <div class="reviews-footer">
+      <a href="#" class="btn btn-secondary">SEE MORE REVIEWS</a>
     </div>
   </section>
 
-  <section id="contact" class="py-24 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-    <div class="absolute -right-20 -top-20 w-96 h-96 bg-brand-pink/10 rounded-full blur-3xl"></div>
-    <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-brand-pink/5 rounded-full blur-3xl"></div>
-
-    <div
-      class="max-w-4xl mx-auto px-6 relative z-10 text-center border border-white/10 p-10 md:p-16 backdrop-blur-sm bg-white/5 rounded-sm"
-    >
-      <h4 class="text-brand-pink uppercase tracking-[0.3em] text-sm mb-4">Book Your Visit</h4>
-      <h2 class="text-5xl md:text-7xl font-serif text-white mb-8">Ready for Perfection?</h2>
-      <p class="text-gray-300 font-sans font-light mb-10 max-w-lg mx-auto">
-        Join thousands of satisfied customers across Georgia and the Southeast. Schedule your appointment online or visit one of our 36 locations today.
-      </p>
-
-      <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-        <a
-          href="#book-online"
-          class="bg-brand-pink text-white px-10 py-4 font-sans font-semibold uppercase tracking-widest hover:bg-white hover:text-brand-pink transition-colors duration-300 w-full md:w-auto"
-          data-cta="primary"
-        >
-          Book Online Now
+  <!-- Footer Section -->
+  <footer class="footer" id="footer-section">
+    <div class="footer-container">
+      <div class="footer-col-brand">
+        <a href="#" class="logo">
+          <span class="logo-top">Authentic</span>
+          <span class="logo-mid">Brazilian Wax</span>
+          <span class="logo-badge">by Andreia</span>
         </a>
-
-        <a
-          href="#locations"
-          class="border border-white text-white px-10 py-4 font-sans font-semibold uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-300 w-full md:w-auto"
-        >
-          Find a Location
-        </a>
+        <p class="brand-desc">
+          Providing smooth confidence and professional service daily. Unapologetically Brazilian.
+        </p>
+        <div class="social-links" aria-label="Social Media Links">
+          <a href="#" id="soc-instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" id="soc-facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" id="soc-tiktok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" id="soc-pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" id="soc-youtube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
       </div>
 
-      <div
-        class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12"
-      >
-        <div class="flex items-center text-gray-400">
-          <i class="fa-solid fa-location-dot mr-3 text-brand-pink" aria-hidden="true"></i>
-          <span class="font-sans text-sm" data-brand-location>Georgia / USA</span>
-        </div>
+      <div class="footer-col">
+        <h3>QUICK LINKS</h3>
+        <ul class="footer-links">
+          <li><a href="#">Services for Her</a></li>
+          <li><a href="#">Services for Him</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#book-online">Book Online</a></li>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#app-download">Download App</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
 
-        <div class="flex space-x-6">
-          <a
-            href="#"
-            class="text-gray-400 hover:text-brand-pink"
-            aria-label="Instagram"
-          >
-            <i class="fa-brands fa-instagram text-xl" aria-hidden="true"></i>
-          </a>
+      <div class="footer-col">
+        <h3>POPULAR WAXES</h3>
+        <ul class="footer-links">
+          <li><a href="#">Brazilian Wax</a></li>
+          <li><a href="#">Full Body Wax</a></li>
+          <li><a href="#">Facial Wax</a></li>
+          <li><a href="#">Underarm Wax</a></li>
+          <li><a href="#">Bikini Wax</a></li>
+          <li><a href="#">Back Wax</a></li>
+        </ul>
+      </div>
 
-          <a
-            href="#"
-            class="text-gray-400 hover:text-brand-pink"
-            aria-label="Facebook"
-          >
-            <i class="fa-brands fa-facebook text-xl" aria-hidden="true"></i>
-          </a>
+      <div class="footer-col-newsletter">
+        <h3>STAY IN TOUCH</h3>
+        <p>Get exclusive offers and tips delivered directly to your inbox.</p>
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');" id="newsletter-form">
+          <input type="email" placeholder="Your email address" required class="subscribe-input" id="newsletter-email" aria-label="Email address for newsletter">
+          <button type="submit" class="btn btn-subscribe" id="newsletter-submit-btn">SUBSCRIBE</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="copyright">&copy; 2026 Brazilian Wax by Andreia. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
         </div>
       </div>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer class="bg-black py-8 border-t border-white/10">
-  <div
-    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-sans tracking-wider"
-  >
-    <p>
-      &copy; <span data-year></span>
-      <span data-brand-text>YOUR BRAND</span>. All Rights Reserved.
-    </p>
-    <div class="mt-4 md:mt-0 space-x-6">
-      <a href="#" class="hover:text-white">Privacy Policy</a>
-      <a href="#" class="hover:text-white">Terms of Service</a>
-    </div>
-  </div>
-</footer>
-
-
-
+  <!-- GSAP Animation Library CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Custom JS File -->
+  <script src="javascript.js"></script>
 </body>
-
-
-<script src="javascript.js"></script>
 </html>
+
